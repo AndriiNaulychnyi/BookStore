@@ -11,7 +11,7 @@ public class User {
     private String name;
     private String surname;
     private String email;
-    private List<Book> basket;
+    private final Basket basket = new Basket();
 
     public User() {
     }
