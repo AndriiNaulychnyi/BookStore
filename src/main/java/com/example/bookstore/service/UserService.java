@@ -12,6 +12,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private BasketService basketService;
 
     public List<User> getAll() {
         return userRepository.getAll();
@@ -22,7 +24,8 @@ public class UserService {
     }
 
     public User addUser(User user) {
-        return userRepository.addUser(user);
+        User newUser = new User(user, basketService.newBasket());
+        return userRepository.addUser(newUser);
     }
 
     public User updateUser(Long id, User user) {
