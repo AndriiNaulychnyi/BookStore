@@ -4,7 +4,9 @@ import com.example.bookstore.models.Book;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
@@ -44,10 +46,10 @@ public class BookRepository {
     public Book updateBook(Long id, Book book) {
         for (int i = 0; i < books.size(); i++) {
             if (books.get(i).getId().equals(id)) {
-                Book book1 = books.get(i);
-                book1.setName(book.getName());
-                book1.setYear(book.getYear());
-                return book1;
+                Book newBook = books.get(i);
+                newBook.setName(book.getName());
+                newBook.setYear(book.getYear());
+                return newBook;
             }
         }
         return null;

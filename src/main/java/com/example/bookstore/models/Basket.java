@@ -2,18 +2,14 @@ package com.example.bookstore.models;
 
 import lombok.Data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Data
 public class Basket {
 
     private Long id;
-    private final List<Book> basket = new ArrayList<>();
-    private int allPrice;
-
-    public void setAllPrice(int price) {
-        this.allPrice += price;
-    }
+    private final Map<Long, Book> product = new HashMap<>();
+    private int totalPrice;
 
 }
