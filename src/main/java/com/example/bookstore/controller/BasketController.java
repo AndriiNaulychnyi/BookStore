@@ -1,6 +1,6 @@
 package com.example.bookstore.controller;
 
-import com.example.bookstore.models.Book;
+import com.example.bookstore.models.Basket;
 import com.example.bookstore.service.BasketService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
