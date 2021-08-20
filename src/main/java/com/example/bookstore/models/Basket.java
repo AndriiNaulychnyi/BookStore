@@ -11,7 +11,13 @@ public class Basket {
     // remove allPrice field
 
     private Long id;
-    private final Map<Long, Book> product = new HashMap<>();
-    private int totalPrice;
+    private final Map<Long, Book> products = new HashMap<>();
 
+    public double getTotalPrice() {
+        int basketTotalPrice = 0;
+        for (Book book: products.values()) {
+            basketTotalPrice += book.getPrice();
+        }
+        return basketTotalPrice;
+    }
 }
