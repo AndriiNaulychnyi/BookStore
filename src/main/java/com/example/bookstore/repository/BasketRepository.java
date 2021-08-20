@@ -16,7 +16,7 @@ public class BasketRepository {
 
 
     public Book addBookToBasket(Long basketId, Book book) {
-        baskets.get(basketId).getProduct().put(book.getId(), book);
+        baskets.get(basketId).getProducts().put(book.getId(), book);
 
         return null;
     }
@@ -30,7 +30,16 @@ public class BasketRepository {
 
     public Basket removeFromBasket(Long basketId, Long bookId) {
         Basket basket = baskets.get(basketId);
-        basket.getProduct().remove(bookId);
+        basket.getProducts().remove(bookId);
         return basket;
+    }
+
+    public Basket getBasket(Long id) {
+        return baskets.get(id);
+    }
+
+    public Basket clearBasket(Long id) {
+        baskets.get(id).getProducts().clear();
+        return baskets.get(id);
     }
 }
