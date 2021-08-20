@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bookstore-db
+    username: bookstore
+    password: bookstore123!
+
+    initialize: true
+    initialization-mode: always
+    schema: classpath:/sql/schema.sql
+    continue-on-error: false
