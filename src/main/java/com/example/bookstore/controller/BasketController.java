@@ -2,30 +2,40 @@ package com.example.bookstore.controller;
 
 import com.example.bookstore.models.Basket;
 import com.example.bookstore.service.BasketService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.bookstore.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 public class BasketController {
 
-    @Autowired
-    private BasketService basketService;
+    private final BasketService basketService;
+    private final UserService userService;
 
-    // 1. Update API
-    // PUT /api/users/{userId}/basket
-    // {
-    //     "bookId": 213234
-    // }
-    // AddToBasketRequest <- in package .dto
 
-    @PutMapping("/api/basket/{id}/basket")
-    public void addBookToBasket(@PathVariable Long id, Long bookId) {
-        basketService.addBookToBasket(id, bookId);
+    @GetMapping("/api/users/{userId}/basket")
+    public Basket getBasket(@PathVariable Long userId) {
+        Long basketId = userService.getUser(userId).getBasket().getId();
+        return basketService.getBasket(basketId);
     }
 
-    @DeleteMapping("/api/basket/{id}/basket")
-    public Basket removeFromBasket(@PathVariable Long id, Long bookId) {
-        return basketService.removeFromBasket(id, bookId);
+    @PutMapping("/api/users/{userId}/basket/{bookId}")
+    public void addBookToBasket(@PathVariable Long userId, @PathVariable Long bookId) {
+        Long basketId = userService.getUser(userId).getBasket().getId();
+        basketService.addBookToBasket(basketId, bookId);
+    }
+
+    @DeleteMapping("/api/users/{userId}/basket/{bookId}")
+    public Basket removeFromBasket(@PathVariable Long userId, @PathVariable Long bookId) {
+        Long basketId = userService.getUser(userId).getBasket().getId();
+        return basketService.removeFromBasket(basketId, bookId);
+    }
+
+    @DeleteMapping("/api/users/{id}/basket")
+    public Basket clearBasket(@PathVariable Long id) {
+        Long basketId = userService.getUser(id).getBasket().getId();
+        return basketService.clearBasket(basketId);
     }
 
 
