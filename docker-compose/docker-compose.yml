@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  bookstore-db:
+    image: postgres:12-alpine
+    container_name: bookstore-db
+    volumes:
+      - bookstore-db-volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=bookstore-db
+      - POSTGRES_USER=bookstore
+      - POSTGRES_PASSWORD=bookstore123!
+    ports:
+      - 5432:5432
+
+volumes:
+  bookstore-db-volume:
