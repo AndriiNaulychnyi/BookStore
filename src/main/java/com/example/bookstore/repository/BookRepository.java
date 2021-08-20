@@ -43,7 +43,7 @@ public class BookRepository {
             if (books.get(i).getId().equals(id)) {
                 Book newBook = books.get(i);
                 newBook.setName(book.getName());
-                newBook.setYear(book.getYear());
+                newBook.setYearOfPublication(book.getYearOfPublication());
                 return newBook;
             }
         }
