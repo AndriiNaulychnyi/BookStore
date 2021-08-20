@@ -2,16 +2,16 @@ package com.example.bookstore.controller;
 
 import com.example.bookstore.models.Book;
 import com.example.bookstore.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class BookController {
 
-    @Autowired
-    private BookService bookService;
+    private final BookService bookService;
 
     // GET    /api/books
     // POST   /api/books

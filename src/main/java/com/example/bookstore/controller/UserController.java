@@ -2,16 +2,16 @@ package com.example.bookstore.controller;
 
 import com.example.bookstore.models.User;
 import com.example.bookstore.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     @GetMapping("/api/users")
     public List<User> getAll() {
