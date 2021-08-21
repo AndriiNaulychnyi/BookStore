@@ -2,16 +2,17 @@ package com.example.bookstore.service;
 
 import com.example.bookstore.models.User;
 import com.example.bookstore.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final BasketService basketService;
 
     public List<User> getAll() {
         return userRepository.getAll();
@@ -22,7 +23,8 @@ public class UserService {
     }
 
     public User addUser(User user) {
-        return userRepository.addUser(user);
+        User newUser = new User(user, basketService.newBasket());
+        return userRepository.addUser(newUser);
     }
 
     public User updateUser(Long id, User user) {

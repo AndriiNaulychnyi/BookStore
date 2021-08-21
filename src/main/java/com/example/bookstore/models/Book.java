@@ -6,14 +6,7 @@ import lombok.Data;
 public class Book {
     private Long id;
     private String name;
-    private int year;
+    private int yearOfPublication;
+    private int price;
 
-    public Book() {
-    }
-
-    public Book(Book book) {
-        this.setId(book.getId());
-        this.setName(book.getName());
-        this.setYear(book.getYear());
-    }
 }

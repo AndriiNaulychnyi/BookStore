@@ -2,17 +2,16 @@ package com.example.bookstore.service;
 
 import com.example.bookstore.models.Book;
 import com.example.bookstore.repository.BookRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
 
-    @Autowired
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     public List<Book> getBooks() {
         return bookRepository.getBooks();
