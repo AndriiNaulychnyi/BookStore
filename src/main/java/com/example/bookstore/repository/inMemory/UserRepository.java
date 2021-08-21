@@ -1,4 +1,4 @@
-package com.example.bookstore.repository;
+package com.example.bookstore.repository.inMemory;
 
 import com.example.bookstore.models.User;
 import org.springframework.stereotype.Repository;

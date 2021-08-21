@@ -1,7 +1,7 @@
 package com.example.bookstore.service;
 
 import com.example.bookstore.models.User;
-import com.example.bookstore.repository.UserRepository;
+import com.example.bookstore.repository.inMemory.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

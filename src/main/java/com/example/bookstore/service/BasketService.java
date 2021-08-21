@@ -2,7 +2,7 @@ package com.example.bookstore.service;
 
 import com.example.bookstore.models.Basket;
 import com.example.bookstore.models.Book;
-import com.example.bookstore.repository.BasketRepository;
+import com.example.bookstore.repository.inMemory.BasketRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
